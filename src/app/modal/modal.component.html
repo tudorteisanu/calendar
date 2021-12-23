@@ -1,0 +1,33 @@
+<div class="modal">
+  <div class="modal__content">
+    <div class="modal__title">
+      <span>Events</span>
+    </div>
+    <div class="divider"></div>
+    <div class="actions">
+      <div class="actions__input">
+        <input type="text" [(ngModel)]="model" placeholder="Input something" />
+      </div>
+      <div class="actions__btn">
+        <button (click)="addRecord()" [disabled]="!model">Add</button>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <div class="records">
+      <div
+        class="record__item"
+        *ngFor="let record of records; let index = index"
+      >
+        <div>{{ record }}</div>
+        <div class="record__remove">
+          <button class="record__remove--btn" (click)="removeRecord(index)">&#10005;</button>
+        </div>
+      </div>
+    </div>
+    <div class="actions">
+      <div class="actions__close">
+        <button  (click)="close()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

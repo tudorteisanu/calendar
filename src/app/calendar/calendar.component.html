@@ -1,0 +1,35 @@
+<div class="calendar">
+  <div class="calendar__header">
+    <div class="calendar__header--item">Sun</div>
+    <div class="calendar__header--item">Mon</div>
+    <div class="calendar__header--item">Tue</div>
+    <div class="calendar__header--item">Wen</div>
+    <div class="calendar__header--item">Thu</div>
+    <div class="calendar__header--item">Fri</div>
+    <div class="calendar__header--item">Sat</div>
+  </div>
+  <div class="calendar__content" *ngFor="let week of calendar">
+    <div
+      class="calendar__content--item"
+      *ngFor="let day of week.days"
+      [class.disabled]="day.disabled"
+      (click)="select(day.value)"
+    >
+      <div class="date">
+        <div
+          class="date__day"
+          [class.active]="day.active"
+          [class.selected]="day.selected"
+        >
+          <span style="margin-right: 10px;" *ngIf="day.active">Today</span>{{ day.value | moment: "DD" }}
+        </div>
+      </div>
+      <div class="records">
+        <div class="records__item" *ngFor="let record of day.records">
+          <div class="records__item--dot"></div>
+          <span>{{ record }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
