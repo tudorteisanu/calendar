@@ -10,7 +10,7 @@ export class AuthComponent  {
   constructor(private router: Router) {
   }
 
-  login() {
-    this.router.navigate(['/projects'])
+  async login() {
+    await this.router.navigate(['/projects'])
   }
 }
